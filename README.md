@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/adbc9987-2988-4032-9828-43deef6c09bd)# DevLinks
+# DevLinks
 Este é um projeto de aplicação web Linktree, desenvolvido com ReactJS e TailwindCSS, utilizando Firebase para autenticação e armazenamento de dados das URLs. A aplicação possui uma interface de administração protegida por rotas privadas, permitindo que apenas usuários autenticados como administradores possam alterar os links visíveis. A aplicação Linktree permite aos usuários exibir uma lista personalizada de links, semelhante ao serviço oferecido pelo Linktree. A página de administração é protegida por autenticação e apenas administradores podem acessar e modificar os links exibidos.
 
 # Funcionalidades
