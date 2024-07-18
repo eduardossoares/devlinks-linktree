@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { Social } from "../../components/Social";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+// import { Social } from "../../components/Social";
+// import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
 import { db } from "../../services/firebaseConnection";
 
@@ -15,17 +15,19 @@ interface LinkProps {
     text: string,
 }
 
+/*
 interface SocialLinksProps {
     facebook: string,
     youtube: string,
     instagram: string,
 }
+*/
 
 
 
 export function Home() {
     const [links, setLinks] = useState<LinkProps[]>([]);
-    const [socialLinks, setSocialLinks] = useState<SocialLinksProps>();
+    // const [socialLinks, setSocialLinks] = useState<SocialLinksProps>(); 
 
     useEffect(() => {
         const loadLinks = () => {
@@ -54,7 +56,7 @@ export function Home() {
         loadLinks();
     }, []);
 
-    useEffect(() => {
+    /**useEffect(() => {
         const loadSocial = () => {
             const docRef = doc(db, "social", "link");
             getDoc(docRef)
@@ -73,6 +75,7 @@ export function Home() {
         }
         loadSocial();
     }, []);
+    */
 
     return (
         <div className="flex flex-col text-white text-center justify-center items-center space-y-20">
@@ -82,19 +85,24 @@ export function Home() {
                 <span className="font-extralight text-sm md:text-base">Veja meus links!</span>
             </div>
 
-            {links.map((link) => (
-                <div key={link.id} className="flex flex-col justify-center items-center w-full space-y-4 select-none font-semibold">
+            <div className="w-full flex flex-col gap-4">
+                {links.map((link) => (
+                    <div key={link.id} className="flex flex-col justify-center items-center w-full space-y-4 select-none font-semibold">
 
-                    <a style={{ backgroundColor: `${link.bg}`, color: `${link.text}` }} className="w-[80%] 
+                        <a style={{ backgroundColor: `${link.bg}`, color: `${link.text}` }} className="w-[80%] 
                     md:max-w-[600px] text-sm md:text-lg py-3 p-2 rounded-md hover:scale-[1.02] duration-200 
                     cursor-pointer" href={link.url} target="_blank">
-                        <span>{link.name}</span>
-                    </a>
+                            <span>{link.name}</span>
+                        </a>
 
-                </div>
-            ))}
+                    </div>
+                ))}
+            </div>
 
-            {socialLinks && Object.keys(socialLinks).length > 0 && (
+
+            {
+                /** 
+                {socialLinks && Object.keys(socialLinks).length > 0 && (
                 <footer className="flex gap-4 pb-20">
                     <Social url={socialLinks?.facebook}>
                         <FaFacebook size={35} color="#FFF" />
@@ -109,6 +117,9 @@ export function Home() {
                     </Social>
                 </footer>
             )}
+                */
+            }
+
 
         </div>
     )
